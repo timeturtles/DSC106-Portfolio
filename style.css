@@ -2,11 +2,13 @@ body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: max(1em, (100% - 100ch) / 2);
-  display: contents;
-  nav {
-    display: flex;
-    a {
-      flex: 1;
-    }
-  }
+  display: contents; 
+}
+
+nav {
+  display: flex;
+}
+
+nav a {
+  flex: 1;
 }
