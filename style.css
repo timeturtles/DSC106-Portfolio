@@ -2,7 +2,6 @@ body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: auto;
-  display: contents; 
   padding: 50px;
 }
 
@@ -20,8 +19,9 @@ nav a {
   color: inherit;
   text-align: center;
   padding: 0.5em;
-  .current {
-    border-bottom-width: 0.4em;
-    padding-bottom: 0.1em;
-  }
+}
+
+nav a.current {
+  border-bottom-width: 0.4em;
+  padding-bottom: 0.1em;
 }
