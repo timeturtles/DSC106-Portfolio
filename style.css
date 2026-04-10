@@ -52,3 +52,14 @@ form label {
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
 }
+
+.projects {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 1em;
+  h2 {
+    margin: 0
+  }
+}
