@@ -4,7 +4,7 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2);
   display: contents; 
 }
-
+/*
 nav {
   display: flex;
   margin-bottom: 25px;
@@ -24,3 +24,4 @@ nav a {
     padding-bottom: 0.1em;
   }
 }
+  */
