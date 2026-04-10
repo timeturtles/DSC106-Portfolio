@@ -1,10 +1,11 @@
 body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
-  margin-inline: max(1em, (100% - 100ch) / 2);
+  margin-inline: auto;
   display: contents; 
+  padding: 50px;
 }
-/*
+
 nav {
   display: flex;
   margin-bottom: 25px;
@@ -24,4 +25,3 @@ nav a {
     padding-bottom: 0.1em;
   }
 }
-  */
