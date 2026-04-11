@@ -60,19 +60,21 @@ form label {
 .projects {
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+  
   article {
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 3;
   }
-  gap: 1em;
+
   h2 {
     margin: 0
   }
 }
 
 h2 {
-  font-size: 400%;
+  font-size: 275%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -83,9 +85,22 @@ h1, h2, h3, h4, h5, h6 {
 .resume {
   h3 {
     text-decoration: underline;
+    margin-bottom: 10px;
   }
-  .experience {
+
+  .job-header {
     display: flex;
-    gap: 20px
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .job-header img {
+    width: 60px;
+    height: 60px;
+  }
+
+  ul {
+    margin-top: 10px;
   }
 }
