@@ -61,7 +61,7 @@ form label {
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
-  
+
   article {
     display: grid;
     grid-template-rows: subgrid;
@@ -103,4 +103,12 @@ h1, h2, h3, h4, h5, h6 {
   ul {
     margin-top: 10px;
   }
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 40px;
+  list-style-type: disc;
+  padding-left: 20px;
 }
