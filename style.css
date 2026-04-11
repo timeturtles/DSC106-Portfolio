@@ -41,6 +41,10 @@ nav a:hover {
   background-color: oklch(from var(--color-accent) 95% 5% h)
 }
 
+input, textarea, button {
+  font: inherit;
+}
+
 form {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -56,8 +60,11 @@ form label {
 .projects {
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  grid-template-rows: subgrid;
-  grid-row: span 3;
+  article {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+  }
   gap: 1em;
   h2 {
     margin: 0
@@ -71,4 +78,8 @@ h2 {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
+}
+
+.resume h3 {
+  text-decoration: underline;
 }
