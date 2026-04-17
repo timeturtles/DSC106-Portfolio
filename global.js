@@ -19,8 +19,8 @@ for (let p of pages) {
   let url = p.url;
   let title = p.title;
   const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-  ? "/"                  // Local server
-  : "/website/";         // GitHub Pages repo name
+    ? "/"                  // Local server
+    : "/website/";         // GitHub Pages repo name
   let a = document.createElement('a');
   url = !url.startsWith('http') ? BASE_PATH + url : url;
   a.href = url;
