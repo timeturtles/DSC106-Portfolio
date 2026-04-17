@@ -20,18 +20,19 @@ for (let p of pages) {
   let title = p.title;
   const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
     ? "/"                  // Local server
-    : "/website/";         // GitHub Pages repo name
+    : "/DSC106-Portfolio/";         // GitHub Pages repo name
   let a = document.createElement('a');
   url = !url.startsWith('http') ? BASE_PATH + url : url;
   a.href = url;
   a.textContent = title;
-  nav.append(a);
   if (a.host === location.host && a.pathname === location.pathname) {
     a.classList.add('current');
   }
   if (a.host !== location.host && a.pathname === location.pathname) {
     a.target = '_blank';
   }
+  nav.append(a);
+  
 }
 
 
