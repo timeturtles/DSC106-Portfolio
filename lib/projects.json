@@ -1,14 +1,12 @@
 [
     {
         "title": "What Impacts Steam Video Games Ratings",
-        "year": "2026",
-        "image": "../images/steam_logo.jpg",
+        "image": "/images/steam_logo.jpg",
         "description": "What Impacts Steam Video Games Ratings looks into various aspects of what influences a user to give a game a rating, with a focus on quantitative data. This project makes use of concepts such as machine learning and EDA, and uses data sourced from Kaggle."
     },
     {
         "title": "League of Legends First Dragon Significance",
-        "year": "2026",
-        "image": "../images/league_dragons.jpg",
+        "image": "/images/league_dragons.jpg",
         "description": "League of Legends First Dragon Significance is an exploratory data science project, conducted to discover how significant securing the first dragon is on the outcome of the game and player stats. This project goes in depth with data visualizations, hypothesis testing, and predictive model creation using publically available professional gameplay data."
     },
     {
