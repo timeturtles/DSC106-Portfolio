@@ -2,61 +2,73 @@
     {
         "title": "What Impacts Steam Video Games Ratings",
         "image": "/DSC106-Portfolio/images/steam_logo.jpg",
+        "year": 2026,
         "description": "What Impacts Steam Video Games Ratings looks into various aspects of what influences a user to give a game a rating, with a focus on quantitative data. This project makes use of concepts such as machine learning and EDA, and uses data sourced from Kaggle."
     },
     {
         "title": "League of Legends First Dragon Significance",
         "image": "/DSC106-Portfolio/images/league_dragons.jpg",
+        "year": 2026,
         "description": "League of Legends First Dragon Significance is an exploratory data science project, conducted to discover how significant securing the first dragon is on the outcome of the game and player stats. This project goes in depth with data visualizations, hypothesis testing, and predictive model creation using publically available professional gameplay data."
     },
     {
         "title": "Libero modi ipsam tenetur.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2025,
         "description": "Ipsum minima nostrum natus perspiciatis repudiandae atque quibusdam officiis ex dolorum ullam provident maiores magnam animi sit et dignissimos eaque deleniti, iste unde alias amet aut? Dicta temporibus assumenda consequuntur."
     },
     {
         "title": "Nemo sequi aperiam harum.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2023,
         "description": "Sint voluptatibus iusto culpa at quod ex. Omnis ex et assumenda error doloremque iste saepe officia natus, reiciendis debitis in amet non reprehenderit veniam ea odit impedit incidunt tempora? Magni!"
     },
     {
         "title": "Assumenda iusto in quos!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2025,
         "description": "Sed sapiente sit suscipit blanditiis alias illum voluptatem perspiciatis commodi quam omnis velit delectus necessitatibus, ea officiis placeat magni corrupti quaerat iste reiciendis! Dicta, atque consequuntur a blanditiis animi dolores."
     },
     {
         "title": "In officia ipsam tenetur?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2023,
         "description": "Est eum illo alias voluptas et quidem explicabo maiores ipsam praesentium ea! Minima amet facere est ipsam? Rem corrupti, exercitationem velit tempora nemo fuga non inventore quam sunt ut repudiandae."
     },
     {
         "title": "Corporis dolorum magnam autem!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2026,
         "description": "Vel, voluptatibus odit quaerat non ipsum autem corporis mollitia provident ullam natus et? Autem repellat quisquam modi officiis totam sunt ab quas quos molestias nam dicta laudantium, quasi inventore sint."
     },
     {
         "title": "Blanditiis odit ex non.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2025,
         "description": "Blanditiis facere veniam ab delectus aut similique quisquam molestias, porro harum laboriosam? Fuga suscipit numquam rem dicta blanditiis quidem provident dolor quod dolorem cupiditate, possimus aperiam culpa voluptatem sit. Perspiciatis!"
     },
     {
         "title": "Nemo unde iusto autem?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2023,
         "description": "Quae eum officia ipsum, maxime laborum expedita provident eligendi totam delectus dolorum fugiat laudantium deleniti corporis fugit enim excepturi? Iure sunt at minus, eligendi rerum dignissimos beatae possimus. Qui, expedita."
     },
     {
         "title": "Eligendi beatae fuga reprehenderit!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2024,
         "description": "Veniam earum, sunt voluptas mollitia ipsam accusantium reiciendis, facere architecto minus vitae recusandae ea eos suscipit similique! Maxime, nihil dolorem. Dolorem, illum eius accusantium rem amet voluptatibus iure officia quo."
     },
     {
         "title": "Quis nesciunt exercitationem autem.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2026,
         "description": "Natus pariatur dicta deleniti reiciendis, dolor placeat rerum optio id. Explicabo at exercitationem dolores, voluptatibus aspernatur eos expedita dolorem, natus accusantium quae voluptatum voluptates? Enim, error. Numquam ducimus fugiat tenetur!"
     },
     {
         "title": "Blanditiis alias voluptatem ex!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": 2025,
         "description": "Aperiam id numquam ex accusamus corrupti laboriosam amet culpa, sapiente voluptate libero vero explicabo sunt ut delectus ad? Consequuntur, quidem voluptate sed dolorem aperiam placeat eligendi rerum dolores corrupti esse!"
     }
 ]
