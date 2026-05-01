@@ -158,10 +158,57 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
-/* Pie Chart */
-#projects-pie-plot {
-  max-width: 20em;
-  margin-block: 2em;
 
-  overflow: visible;
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+
+  /* Pie Chart */
+  #projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+  }
+  &:has(path:hover) {
+    path:not(:hover) {
+      opacity: 0.5;
+    }
+  }
+  path {
+    transition: 300ms;
+    cursor: pointer;
+  }
+
+  /* Legend */
+  .legend {
+    display: grid;
+    border: #666 1px solid;
+    padding: 1em;
+    margin: auto;
+    flex: 1;
+    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+    .swatch {
+      width: 1em;
+      aspect-ratio: 1 / 1;
+      background-color: var(--color);
+      border-radius: 50%;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+  }
 }
+
+.selected {
+  --color: var(--color-accent) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
+
