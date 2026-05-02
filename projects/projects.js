@@ -1,7 +1,6 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-
 const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
@@ -11,6 +10,26 @@ titleElement.textContent = `${projects.length} Projects`;
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
+let query = '';
+let selectedIndex = -1;
+
+function filterProjects() {
+  return projects.filter((project) => {
+    // search filter
+    const matchesSearch = Object.values(project)
+      .join('\n')
+      .toLowerCase()
+      .includes(query.toLowerCase());
+
+    // pie slice filter
+    const matchesYear =
+      selectedIndex === -1 || project.year === currentSelection;
+
+    return matchesSearch && matchesYear;
+  });
+}
+
+let currentSelection = null;
 
 function renderPieChart(projectsGiven) {
   let newRolledData = d3.rollups(
@@ -27,7 +46,6 @@ function renderPieChart(projectsGiven) {
   let newArcData = newSliceGenerator(newData);
   let newArcs = newArcData.map((d) => arcGenerator(d));
   
-  let selectedIndex = -1;
   let svg = d3.select('svg');
   svg.selectAll('path').remove();
 
@@ -46,7 +64,14 @@ function renderPieChart(projectsGiven) {
     .attr('d', arc)
     .attr('fill', colors(i))
     .on('click', () => {
-      selectedIndex = selectedIndex === i ? -1 : i;
+      
+      if (selectedIndex === i) {
+        selectedIndex = -1;
+        currentSelection = null;
+      } else {
+        selectedIndex = i;
+        currentSelection = newData[i].label;
+      }
 
       svg
         .selectAll('path')
@@ -60,36 +85,24 @@ function renderPieChart(projectsGiven) {
           idx === selectedIndex ? 'legend-item selected' : 'legend-item'
         ));
       
-      if (selectedIndex === -1) {
-        renderProjects(projects, projectsContainer, 'h2');
-      } else {
-        let query = newData[i].label;
-        let filteredProjects = projects.filter((project) => {
-          return project.year === query;
-        });
-        renderProjects(filteredProjects, projectsContainer, 'h2');
-      }
+      renderProjects(filterProjects(), projectsContainer, 'h2');
     });
   });
-
-  
-
 }
 
 renderPieChart(projects);
 
-let query = '';
+
 let searchInput = document.querySelector('.searchBar');
 
 searchInput.addEventListener('change', (event) => {
   // update query value
   query = event.target.value;
   // filter projects
-  let filteredProjects = projects.filter((project) => {
-    let values = Object.values(project).join('\n').toLowerCase();
-    return values.includes(query.toLowerCase());
-  });
+  const searchFiltered = projects.filter((project) =>
+    Object.values(project).join('\n').toLowerCase().includes(query.toLowerCase())
+  );
+  renderPieChart(searchFiltered);
   // render filtered projects
-  renderProjects(filteredProjects, projectsContainer, 'h2');
-  renderPieChart(filteredProjects);
+  renderProjects(filterProjects(), projectsContainer, 'h2');
 });
