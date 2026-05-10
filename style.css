@@ -203,11 +203,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Selected Pie Slice*/
 .selected {
   --color: var(--color-accent) !important;
 
   &:is(path) {
     fill: var(--color);
+  }
+}
+
+/* Meta Page */
+#chart{
+  .gridlines .tick {
+    opacity: 0.5;
   }
 }
 
