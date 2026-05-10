@@ -27,15 +27,6 @@ function createBrushSelector(svg) {
   svg.call(d3.brush().on('start brush end', brushed));
 }
 
-function brushed(event) {
-  const selection = event.selection;
-  d3.selectAll('circle').classed('selected', (d) =>
-    isCommitSelected(selection, d),
-  );
-  renderSelectionCount(selection);
-  renderLanguageBreakdown(selection);
-}
-
 function renderSelectionCount(selection) {
   const selectedCommits = selection
     ? commits.filter((d) => isCommitSelected(selection, d))
@@ -89,11 +80,22 @@ function isCommitSelected(selection, commit) {
   }
   const [x0, y0] = selection[0];
   const [x1, y1] = selection[1];
-  const cx = d3.select(`[data-id="${commit.id}"]`).attr('cx');
-  const cy = d3.select(`[data-id="${commit.id}"]`).attr('cy');
+  
+  // Use the scales to get the position
+  const cx = xScale(commit.datetime);
+  const cy = yScale(commit.hourFrac);
+  
   return x0 <= cx && cx <= x1 && y0 <= cy && cy <= y1;
 }
 
+function brushed(event) {
+  const selection = event.selection;
+  d3.selectAll('circle').classed('selected', (d) =>
+    isCommitSelected(selection, d),
+  );
+  renderSelectionCount(selection);
+  renderLanguageBreakdown(selection);
+}
 
 function updateTooltipVisibility(isVisible) {
   const tooltip = document.getElementById('commit-tooltip');
@@ -229,6 +231,7 @@ function renderScatterPlot(data, commits) {
   .selectAll('circle')
   .data(sortedCommits)
   .join('circle')
+  .attr('data-id', d => d.id)
   .attr('cx', (d) => xScale(d.datetime))
   .attr('cy', (d) => yScale(d.hourFrac))
   .attr('r', (d) => rScale(d.totalLines))
@@ -273,6 +276,4 @@ let data = await loadData();
 let commits = processCommits(data);
 
 renderScatterPlot(data, commits);
-
 createBrushSelector(d3.select('#chart svg'));
-

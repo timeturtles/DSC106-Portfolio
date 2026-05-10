@@ -294,3 +294,16 @@ dl.info[hidden]:not(:hover, :focus-within) {
 circle.selected {
   fill: #ff6b6b;
 }
+
+/* Language Breakdown */
+#language-breakdown {
+  display: grid;
+  /* Define number of columns (e.g., 3 columns) */
+  grid-template-columns: repeat(3, 1fr); 
+  /* Explicitly define two rows */
+  grid-template-rows: auto auto; 
+  margin-top: 1em;
+  border: #666 1px solid;
+  padding: 1em;
+  border-radius: 8px;
+}
