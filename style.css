@@ -219,4 +219,59 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Tooltips Box */
+dl.info {
+  display: grid;
+  grid-template-columns: max-content 1fr; /* Label fits content, value takes remaining space */
+  column-gap: 1.5rem;
+  row-gap: 0.5rem;
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
 
+dt {
+  grid-column: 1;
+  font-weight: 500;
+  color: #666; /* Less prominent color */
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+dd {
+  grid-column: 2;
+  margin: 0; /* Removes default indentation */
+  font-weight: 400;
+  color: #111; /* More prominent value */
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+}
+
+/* Hover Effects */
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+/* Hide Info Box when not hovered */
+dl.info {
+  /* ... other styles ... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
