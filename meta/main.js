@@ -277,3 +277,14 @@ let commits = processCommits(data);
 
 renderScatterPlot(data, commits);
 createBrushSelector(d3.select('#chart svg'));
+
+/* lab 8 */
+let commitProgress = 100;
+let timeScale = d3
+  .scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime),
+  ])
+  .range([0, 100]);
+let commitMaxTime = timeScale.invert(commitProgress);
