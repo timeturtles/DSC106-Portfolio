@@ -9,10 +9,12 @@
 </head>
 <body>
     <h1>Meta</h1>
-    <label>Show commits up to:
-        <input type="range" id="commit-progress" min="0" max="100" value="100">
-        <time id="commit-time"></time>
-    </label>
+    <div id="slider">
+        <label>Show commits up to:
+            <input type="range" id="commit-progress" min="0" max="100" value="100">
+            <time id="commit-time"></time>
+        </label>
+    </div>
     <div id="stats"></div>
     <h2>Commits by time of day</h2>
     <div id="chart"></div>
@@ -24,7 +26,7 @@
     <dd id="commit-date"></dd>
 
     <dt>Time</dt>
-    <dd id="commit-time"></dd>
+    <dd id="commit-times"></dd>
 
     <dt>Author</dt>
     <dd id="commit-author"></dd>
@@ -36,6 +38,6 @@
     <p id="selection-count">No commits selected</p>
     <dl id="language-breakdown" class="stats"></dl>
     
-    <script src="main.js" type="module"></script>
+    <script src="meta.js" type="module"></script>
 </body>
 </html>
