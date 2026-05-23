@@ -212,13 +212,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-
 /* Stats display */
 .stats {
   display: grid;
   grid-template-columns: auto auto;
   gap: 0.25em 1em;
   margin-block: 1em;
+  border: #666 1px solid;
+  padding: 1em;
+  border-radius: 6px;
 }
 
 .stats dt {
@@ -257,7 +259,6 @@ circle.selected {
   display: none;
 }
 
-/* Tooltip — hidden state must use display:none to override display:grid */
 .info {
   display: grid;
   grid-template-columns: auto auto;
@@ -267,8 +268,6 @@ circle.selected {
   transition-property: opacity, visibility;
 }
 
-/* THIS is the critical fix: explicitly restore display:none when hidden,
-   because .info's display:grid would otherwise override the browser default */
 .info[hidden] {
   display: none;
 }
@@ -309,18 +308,6 @@ circle.selected {
   animation: marching-ants 2s linear infinite;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/*
 #slider {
   display: flex;
   align-items: baseline;
@@ -343,4 +330,3 @@ circle.selected {
   width: 80%;
   margin: 0 1em;
 }
-  */

@@ -1,11 +1,5 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-// Guard against double-initialization (if this module is accidentally executed twice)
-if (window.metaInitialized) {
-  console.log('meta.js: already initialized, skipping second run');
-} else {
-  window.metaInitialized = true;
-
 async function loadData() {
   const data = await d3.csv('loc.csv', (row) => ({
     ...row,
@@ -164,6 +158,15 @@ function renderLanguageBreakdown(selection) {
   }
 }
 
+function createBrushSelector(svg) {
+  svg.call(d3.brush());
+
+  svg.call(d3.brush().on('start brush end', brushed));
+
+  svg.selectAll('.dots, .overlay ~ *').raise();
+}
+
+
 function renderScatterPlot(data, commits) {
   const width = 1000;
   const height = 600;
@@ -246,11 +249,7 @@ function renderScatterPlot(data, commits) {
       updateTooltipVisibility(false);
     });
 
-  // FIX: call brush only once, with the event listener attached from the start
-  svg.call(d3.brush().on('start brush end', brushed));
-
-  // Raise dots and everything after overlay so tooltips still work
-  svg.selectAll('.dots, .overlay ~ *').raise();
+  
 }
 
 let data = await loadData();
@@ -276,5 +275,39 @@ const workByPeriod = d3.rollups(
 const maxPeriod = d3.greatest(workByPeriod, (d) => d[1])?.[0];
 
 renderScatterPlot(data, commits);
+createBrushSelector(d3.select('svg'));
 
-} // end init guard
+
+
+
+
+
+
+let commitProgress = 100;
+let timeScale = d3
+  .scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime),
+  ])
+  .range([0, 100]);
+let commitMaxTime = timeScale.invert(commitProgress);
+let filteredCommits = commits;
+function onTimeSliderChange() {
+  const slider = document.getElementById('commit-progress');
+  commitProgress = slider.value;
+  commitMaxTime = timeScale.invert(commitProgress);
+  const timeElement = document.getElementById('commit-time');
+  timeElement.textContent = commitMaxTime.toLocaleString({ dateStyle: 'long', timeStyle: 'short' });
+  filteredCommits = commits.filter((c) => c.datetime <= commitMaxTime);
+  renderScatterPlot(data, filteredCommits);
+}
+
+
+
+
+
+
+
+onTimeSliderChange();
+document.getElementById('time-slider').addEventListener('input', onTimeSliderChange);
